@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro
+{% endblock %}
+
+{% block body %}
+	<h1>Registro</h1>
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.dni, {
+                    label: 'DNI'
+                }) }}
+	{{ form_row(registrationForm.nombre, {
+                    label: 'Nombre'
+                }) }}
+	{{ form_row(registrationForm.apellido1, {
+                    label: 'Apellido 1'
+                }) }}
+	{{ form_row(registrationForm.apellido2, {
+                    label: 'Apellido 2'
+                }) }}
+	{{ form_row(registrationForm.email, {
+                    label: 'Correo'
+                }) }}
+	{{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+
+	<button type="submit" class="btn">Registrar</button>
+	{{ form_end(registrationForm) }}
+{% endblock %}
