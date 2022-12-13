@@ -4,28 +4,45 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Registro</h1>
 
 	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.dni, {
-                    label: 'DNI'
-                }) }}
-	{{ form_row(registrationForm.nombre, {
-                    label: 'Nombre'
-                }) }}
-	{{ form_row(registrationForm.apellido1, {
-                    label: 'Apellido 1'
-                }) }}
-	{{ form_row(registrationForm.apellido2, {
-                    label: 'Apellido 2'
-                }) }}
-	{{ form_row(registrationForm.email, {
-                    label: 'Correo'
-                }) }}
-	{{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
-                }) }}
 
-	<button type="submit" class="btn">Registrar</button>
+	<section class="registration-section pt-120 pb-120">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="registration-block text-center">
+						<div class="registration-block-inner">
+							<h3 class="title">create  your account</h3>
+							<form class="registration-form">
+								<div class="frm-group">
+									{{ form_row(registrationForm.dni, { label: 'DNI' }) }}
+								</div>
+								<div class="frm-group">
+									{{ form_row(registrationForm.nombre, { label: 'Nombre' }) }}
+								</div>
+								<div class="frm-group">
+									{{ form_row(registrationForm.apellido1, { label: 'Apellido 1' }) }}
+								</div>
+								<div class="frm-group">
+									{{ form_row(registrationForm.apellido2, { label: 'Apellido 2' }) }}
+								</div>
+								<div class="frm-group">
+									{{ form_row(registrationForm.email, { label: 'Correo' }) }}
+								</div>
+								<div class="frm-group">
+									{{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+								</div>
+								<div class="frm-group">
+									<input type="submit" value="Crear nueva cuenta">
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	{{ form_end(registrationForm) }}
 {% endblock %}

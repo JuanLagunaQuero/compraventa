@@ -1,23 +1,38 @@
 {# templates/login/index.html.twig #}
-{% extends 'base.html.twig' %}
-
-{# ... #}
+{# {% extends 'base.html.twig' %}
+ #}
+{% block styles %}
+  <link rel="stylesheet" href="{{ asset('css/main.css')}}">
+{% endblock %}
 
 {% block body %}
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
-
-        <button type="submit">login</button>
-    </form>
+    <section class="login-section pt-120 pb-120">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="login-block text-center">
+            <div class="login-block-inner">
+              <h3 class="title">login your account </h3>
+              <form class="login-form" action= "{{ path('app_login')}}" method="post">
+                <div class="frm-group">
+                  <input type="text" name="_username" id="username" placeholder="Email">
+                </div>
+                <div class="frm-group">
+                  <input type="password" name="_password" id="password" placeholder="Password">
+                </div>
+                <div class="frm-group">
+                  <input type="submit" value="login account">
+                </div>
+              </form>
+              <p><a href="register">Haven't your any account in here?</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
