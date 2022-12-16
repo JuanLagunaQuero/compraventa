@@ -74,8 +74,9 @@ class VehiculoRepository extends ServiceEntityRepository
         dv.id = v.detalle_id";
         $stmt = $conn->prepare($sql);
         $resultSet = $stmt->executeQuery();
-        $vehiculos = $resultSet->fetchAll();
+        $vehiculos = $resultSet->fetchAllAssociative();
         return $vehiculos;
+        var_dump($vehiculos);
     }
 
 
