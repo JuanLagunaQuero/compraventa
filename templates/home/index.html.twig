@@ -1,13 +1,13 @@
-{% extends "base.html.twig "%}
-{% block styles %}
+{# {% extends "base.html.twig "%}
+ #}{% block styles %}
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="{{ asset('css/main.css')}}">
 {% endblock %}
 
 {% block scripts %}
-{# 	<script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
-	<script src="{{ asset('js/jquery-ui.min.js')}}"></script> #}
-	{# <script src="{{ asset('js/js.js')}}"></script> #}
+ 	<script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
+	<script src="{{ asset('js/jquery-ui.min.js')}}"></script>
+	 <script src="{{ asset('js/js.js')}}"></script> 
 
 	<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -17,31 +17,12 @@
 
 <nav class="navbar">
   <div class="container-fluid">
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Usuario
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-        <li>
-          <form class="d-flex" role="cerrarsesion">
-            <button id="cerrar">Cerrar sesion</button>
-          </form>
-        </li>
-
-        <li>
-          <form class="d-flex" role="cambiarContraseña">
-            <button id="autoCambio">Cambiar contraseña</button>
-          </form>
-        </li>
-
-      </ul>
-    </div>
+     <a href="/logout">Cerrar sesion</a>
   </div>
 </nav>
 
 <div class="tabla">
-	<table id="listaVehiculos">
+	<table id="listaVehiculos" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th>Matricula</th>

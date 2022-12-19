@@ -21,7 +21,7 @@ class CitaRepository extends ServiceEntityRepository
         parent::__construct($registry, Cita::class);
     }
 
-    public function add(Cita $entity, bool $flush = false): void
+    public function add(Cita $entity, bool $flush = true): void
     {
         $this->getEntityManager()->persist($entity);
 

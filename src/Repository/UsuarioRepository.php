@@ -56,6 +56,20 @@ class UsuarioRepository extends ServiceEntityRepository implements PasswordUpgra
         $this->add($user, true);
     }
 
+    public function obtenUsuario($correo)
+    {
+
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM usuario WHERE id = $correo";
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery();
+        $u = $resultSet->fetchAll();
+        return $u;
+    }
+
+
+
+
 //    /**
 //     * @return Usuario[] Returns an array of Usuario objects
 //     */

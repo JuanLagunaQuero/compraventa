@@ -1,11 +1,11 @@
 $(function () {
-    function obtenVehiculos() {
+/*     function obtenVehiculos() {
         $.getJSON("/api/obtenVehiculosDetalle", function (result) {
             return result;
         })
     }
-    obtenVehiculos();
-    $('#listaVehiculos').DataTable({
+    obtenVehiculos(); */
+    var table = $('#listaVehiculos').DataTable({
         "autoWidth": true,
         "info": false,
         "searching": false,
@@ -24,13 +24,24 @@ $(function () {
             { data: "kilometros" },
             { data: "precio" },
             {
+              targets: -1,
               data: null,
               defaultContent:
-                '<a href="#" class="edit">Reservar</a> ',
+                '<button>Reserva</button>',
             },
         ]
     });
 
+    $('#listaVehiculos tbody').on('click', 'button', function () {
+        var data =table.row($(this).parents('tr')).data();
+        $.ajax({
+            url: "/api/addCita/"+data['id'],
+            type: 'post',
+            data : data,
+        })
+        alert(data['id']);
+
+    });
+
     $('.tabla').css( 'display', 'block' );
-    $('#listaVehiculos').columns.adjust().draw();
 })

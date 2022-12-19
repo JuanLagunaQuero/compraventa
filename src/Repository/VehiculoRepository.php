@@ -49,6 +49,16 @@ class VehiculoRepository extends ServiceEntityRepository
         return $detalle;
     }
 
+    public function obtenVehiculo($id_vehiculo)
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM vehiculo WHERE id = $id_vehiculo";
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery();
+        $v = $resultSet->fetchAll();
+        return $v;
+    }
+
     public function obtenVehiculos()
     {
         $conn = $this->getEntityManager()->getConnection();
@@ -63,6 +73,7 @@ class VehiculoRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
         $sql = "SELECT
+        v.id,
         v.matricula,
         dv.marca,
         dv.modelo,
